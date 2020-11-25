@@ -22,14 +22,10 @@ const connection = mongoose.connection;
 connection.once('open', () => {console.log('MongoDB connected');});
 //middleWare
 data = {msg:"Hello World"};
-app.route("/").get((req, res) => {
-(err,result) =>{
-if(err) 
-    return res.status(500).json({msg:err});
-else
-res.json(data)}
+app.route("/").get((req, res) => res.json(data)).catch((err) => {
+    res.status(403).json({msg: err});
 });
-app.listen(port, "0.0.0.0" ,() => console.log(`Your server is running on port ${port}`));
+app.listen(port,() => console.log(`Your server is running on port ${port}`));
 //app.use(express.json());
 //app.use('/user',userRoute);
 //app.route('/').get((req,res) => res.json('Your 1st rest API'));
