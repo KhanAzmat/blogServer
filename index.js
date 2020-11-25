@@ -21,14 +21,14 @@ app.use(bodyParser.urlencoded({
 const connection = mongoose.connection;
 connection.once('open', () => {console.log('MongoDB connected');});
 //middleWare
-data = {msg:"Hello World"};
-// app.route("/").get((req, res) => {
-//     if(err){
-//         console.log(err);
-//     }
-//     else
-//         return res.json(data);
-//     });
+//data = {msg:"Hello World"};
+app.route("/").get((req, res) => {
+    if(err){
+        console.log(err);
+    }
+    else
+        return res.json(data);
+    });
 app.listen(port,() => console.log(`Your server is running on port ${port}`));
 //app.use(express.json());
 //app.use('/user',userRoute);
