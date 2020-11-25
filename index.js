@@ -27,7 +27,7 @@ app.route("/").get((req, res) => {
         console.log(err);
     }
     else
-        res.json(data)});
+        return res.json(data);});
 app.listen(port,() => console.log(`Your server is running on port ${port}`));
 //app.use(express.json());
 //app.use('/user',userRoute);
